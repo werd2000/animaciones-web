@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Animaciones::Sintaxis</title>
+  </head>
+  <style media="screen">
+    body {
+      display: flex;
+      /* align-items: center; */
+      align-items: flex-start;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .contaniner {
+      border: 1px solid red;
+      width: 100%;
+    }
+    .contaniner:hover .cuadrado{
+        animation-play-state: paused; 
+        /* valor por defecto */
+        /* animation-play-state: running; */
+    }
+    .cuadrado {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #7dc900;
+        margin: 20px;
+        position: relative;
+        /* transition: 1s; */
+        /* estas hay que poner */
+        /* puedo ponder varias animaciones separadas por coma */
+        animation-name: cuadrado, rebote;
+        /* el segundo valor corresponde al rebote */
+        animation-duration: 3s, .3s;
+        /* estas son opcionales */
+        /* animation-delay: 1s; */
+        /* animation-iteration-count: 2; */
+        /* El segundo valor espara la segunda animación */
+        animation-iteration-count: infinite, 20;
+        /* animation-timing-function: ease; */
+        /* animation-timing-function: ease-in; */
+        /* animation-timing-function: ease-out; */
+        /* animation-timing-function: ease-in-out; */
+        /* Que no tenga aceleración y la velocidad sea lineal */
+        /* animation-timing-function: linear; */
+        /* 60 cuadros por segundos */
+        /* animation-timing-function: steps(10); */
+        /* que la animación se fluida a gusto */
+        /* crear valores en cubic-bezier.com */
+        /* animation-timing-function: cubic-bezier(1,1,1,1); */
+        /* el segundo valor corresponde al rebote */
+        animation-timing-function: linear, ease-in-out;
+        /* animation-direction: normal; */
+        /* animation-direction: reverse; */
+        animation-direction: alternate;
+        /* animation-direction: alternate-reverse; */
+        /* que quede la animación como comienza, es decir con opacity: 1 */
+        /* animation-fill-mode: backwards; */
+        /* que quede la animación como termina, es decir con opacity: 0 */
+        animation-fill-mode: forwards;
+        /* animation-fill-mode: both; */
+    }
+    @keyframes cuadrado {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: calc(100% - 240px);
+        }
+    }
+
+    @keyframes rebote {
+        /* == 0% */
+        from {
+            transform: translateY(0);
+        }
+        /* == 100% */
+        to {
+            transform: translateY(100px) scale(1, .8);
+        }
+    }
+    @keyframes escalera {
+        from {
+            transform: translate(0);
+        }
+        to {
+            transform: translateY(500px);
+        }
+    }
+  </style>
+  <body>
+    <div class="contaniner">
+      <div class="cuadrado" id="cuadrado">
+        Hola Mundo!
+      </div>
+    </div>
+
+    <script>
+    const $cuadrado = document.getElementById('cuadrado');
+    // $cuadrado.addEventListener('nombre del evento', 'funcion que hago cuando el evento ocurra');
+    // $cuadrado.addEventListener('animationiteration', (event) => {
+    // $cuadrado.addEventListener('animationstart', (event) => {
+    $cuadrado.addEventListener('animationend', (event) => {
+        console.log(event.animationName);
+        if (event.animationName === 'rebote') {
+            $cuadrado.style.animationName = 'cuadrado escalera';
+            $cuadrado.style.animationDuration = '3s';
+        }
+    });
+    </script>
+  </body>
+</html>

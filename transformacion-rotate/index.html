@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformación::Rotate</title>
+  </head>
+  <style media="screen">
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .contaniner {
+      border: 1px solid red;
+    }
+    .contaniner:hover .cuadrado{
+      /* transform: rotate(45deg); */
+      /* valores positivos van en direcc de las agujas del reloj */
+      /* valores negativos van en direcc contratia a las agujas del reloj */
+      /* También puedo rotarlos en los ejes x y z */
+      /* transform: rotateX(45deg); */
+      /* transform: rotateY(45deg); */
+      /* transform: rotateZ(45deg); */
+      /* transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg); */
+      /* puedo resumir en un transform 3d */
+      /* transform: rotate3d(x, y, z, valor); */
+      /* solo el eje x */
+      /* transform: rotate3d(1, 0, 0, 45deg);  */
+      /* solo el eje y */
+      /* transform: rotate3d(0, 1, 0, 45deg);  */
+      /* solo el eje z */
+      transform: rotate3d(0, 0, 1, 45deg); 
+    }
+    .cuadrado {
+      width: 200px;
+      height: 200px;
+      background: #7dc900;
+      margin: 20px;
+      transition: .3s;
+    }
+  </style>
+  <body>
+    <div class="contaniner">
+      <div class="cuadrado">
+        Hola Mundo!
+      </div>
+    </div>
+
+  </body>
+</html>

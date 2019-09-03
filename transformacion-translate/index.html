@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformación::Translate</title>
+  </head>
+  <style media="screen">
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      /* agrego perspectiva para que funciones el translatez */
+      perspective: 200px;
+      /* puedo configurar esta perspectiva */
+      /* puedo hacer que el punto de origen de la perspectiva se mueva */
+      /* perspective-origin: center  es el valor por default*/
+      /* perspective-origin: x y; */
+      /* que cresca desde arriba con top */
+      /* perspective-origin: top; */
+      /* puedo hacerlo desde abajo izq y derecha */
+      /* tambien puedo hacer combinaciones por ej arriba y dercha */
+      /* perspective-origin: top right; */
+    }
+    .contaniner {
+      border: 1px solid red;
+    }
+    .contaniner:hover .cuadrado{
+        /* Así se mueve en el eje x */
+        /* valores positivos a la derecha */
+        /* valores negativos a la izquierda */
+        transform: translate(100px);
+        /* agrego eje y */
+        /* transform: translate(x, y); */
+        /* valores positivos hacia abajo */
+        /* valores negativos hacia arriba */
+        /* Esta forma es resumida */
+        /* transform: translate(100px, 100px); */
+        /* tambien puedo hacerlo especificamente en cada eje */
+        /* transform: translateX(100px); */
+        /* En el eje z se puede acercar o alejar */
+        /* solo funciona en canvas 3d */
+        /* pero puedo agregar una perspectiva */
+        /* en este caso agregamos en el body */
+        /* transform: translateZ(100px); */
+        /* transform: translate3d(x, y, z); */
+        transform: translate3d(100px, 50px, 100px);
+    }
+    .cuadrado {
+      width: 200px;
+      height: 200px;
+      background: #7dc900;
+      margin: 20px;
+      transition: .3s;
+    }
+  </style>
+  <body>
+    <div class="contaniner">
+      <div class="cuadrado">
+        Hola Mundo!
+      </div>
+    </div>
+
+  </body>
+</html>

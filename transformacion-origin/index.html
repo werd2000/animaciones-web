@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformación::Punto de Origen</title>
+  </head>
+  <style media="screen">
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .contaniner {
+      border: 1px solid red;
+    }
+    .contaniner:hover .cuadrado{
+        transform: rotateZ(45deg);
+        /* el original tenía aquí el transform-origin */
+        /* transform-origin: top; */
+    }
+    .cuadrado {
+        /* transform-origin: x y; */
+        /* los valores por defecto son 50% para cada uno */
+        /* puse el transform-origin aquí porque tardaba en tomar el cambio
+            y primero hacia el rotate y despues desplazaba el origin
+        */
+        /* transform-origin: top; */
+        /* transform-origin: left top; */
+        transform-origin: 75% 75%;
+        width: 200px;
+        height: 200px;
+        background: #7dc900;
+        margin: 20px;
+        transition: 1s;
+    }
+  </style>
+  <body>
+    <div class="contaniner">
+      <div class="cuadrado">
+        Hola Mundo!
+      </div>
+    </div>
+
+  </body>
+</html>

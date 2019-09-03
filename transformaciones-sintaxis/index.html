@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Interacciones CSS</title>
+    <style media="screen">
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .pelota {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* puedo quitar el ease porque es el valor por defecto */
+        transition: 1s;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .pelota.a {
+        background-color: red;
+        left: 0;
+      }
+      .pelota.b {
+        background-color: green;
+        right: 0;
+      }
+      .canasta {
+        border: 1px solid blue;
+        position: relative;
+        height: 100px;
+        width: 100%;
+        /* transform: rotar | sesgar | posición | tamaño; */
+        transform: rotate(5deg) skew(10deg) translate(100px) scale(1.5);
+      }
+      .canasta:hover .pelota.a{
+        left: calc(50% - 100px);
+      }
+      .canasta:hover .pelota.b{
+        right: calc(50% - 100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canasta">
+      <div class="pelota a">Hola</div>
+      <div class="pelota b">Mundo</div>
+    </div>
+
+  </body>
+</html>

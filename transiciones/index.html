@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Transiciones CSS</title>
+    <style media="screen">
+      .pelota {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+        /*
+          Si le quito transition-property se realizará la transición
+          en lo que hay en .pelota:hover es decir width y height
+        */
+        /* transition-property: width, height; */
+
+        /* transition-duration: 1s; */
+
+        /* transition-delay: 1s; */
+
+        /* transition-timing-function: ease; */
+
+        /*
+          Esta es la forma en una sola línea
+          transition: propiedad_a_cambiar tiempo delay timing_function
+        */
+        transition: 1s ease;
+      }
+      .pelota:hover{
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pelota">
+    </div>
+
+  </body>
+</html>
